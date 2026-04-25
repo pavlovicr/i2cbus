@@ -1,5 +1,5 @@
 /**
- *\image html arlekino-joker.jpg "arlekino" height=200px   
+ *\image html arlekino-joker.jpg "arlekino" height=100px   
  * @file main.c
  * @brief Main funkcija za inicializacijo in upravljanje z AHT30 senzorjem
  * \image html AHT30.png "AHT30"
