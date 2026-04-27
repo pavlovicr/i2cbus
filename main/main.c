@@ -17,9 +17,9 @@
 #include "esp_err.h"
 
 /** @brief GPIO na Box3 SCL master clock */
-#define I2C_MASTER_SCL_IO 41          
+#define I2C_MASTER_SCL_IO 9      
 /** @brief GPIO na Box3 SDA master data */
-#define I2C_MASTER_SDA_IO 40          
+#define I2C_MASTER_SDA_IO 8         
 /** @brief I2C port */
 #define I2C_MASTER_NUM I2C_NUM_0  
 
