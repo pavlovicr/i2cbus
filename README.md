@@ -60,7 +60,7 @@ Jaz sem nastavil vse 3 na 0 tako da sem jih zacinil na GND. Naslov senzorja je s
 Nastavitveni časi za i2c protokol
 
 <div style="text-align: center;">
-        <img src="images/i2c_compatibile_timing.png" width="100">
+        <img src="images/I2c_compatibile_timing.png" width="100">
 </div>
 
 ## Potek
