@@ -12,7 +12,7 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=/home/rados/esp/Projekti/aht30/build"
+    "--compile-commands-dir=/home/rados/esp/Projekti/i2cbus/build"
   ],
   "idf.flashType": "UART",
 

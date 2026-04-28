@@ -27,7 +27,7 @@ Več na:
 
 ## Features - Lasnosti in značilnosti
 
-esp32s3 
+Esp32s3 
  - ni važno kateri GPIO izberemo za SCL in SDA. Priporočila SCL (9, 22, 16, 6, 2 in za SDA(8, 21, 17, 5, 1)  
 
 
@@ -50,16 +50,60 @@ Potrebno je dati upore in najbolje iste za kompletno vodilo po zgornji shemi ne 
 Naslov LM75 je nastavljen s tremi pini, da se omogoči delovanje več LM75 na istem vodilu. 
 Obvezno moramo pinom A0, A1 in A2 dati vredost 1 ali 0 tako da jih zacinimo na Vcc na desni strani ali GND na levi strani. 
 
-Če bom nastavil naslov A0=0 , A1=0, in A2=0 bo pravi naslov senzorja 1001000 oziroma hex 0x48
+Jaz sem nastavil vse 3 na 0 tako da sem jih zacinil na GND. Naslov senzorja je sedaj 1001000 oziroma **hex 0x48**
 
 <div style="text-align: center;">
         <img src="images/mozni_naslovi.png" width="100">
 </div>
 
 
+Nastavitveni časi za i2c protokol
+
+<div style="text-align: center;">
+        <img src="images/i2c_compatibile_timing.png" width="100">
+</div>
+
+## Potek
+
+I2C timing diagram (Branje)
+Tipično 2 baytno branje z lokacije prednastavljenega pointerja,  kot so temperatura, temperatura visoka in temperatura nizka.  
+
+<div style="text-align: center;">
+        <img src="images/LM75_diagram_branje.png" width="100">
+</div>
+
+Potek (brez nastavljanja pointerja):
+
+Master pošlje START
+- Pošlje naslov naprave + READ bit
+
+LM75 vrne:
+- MSB (prvi byte temperature)
+- LSB (drugi byte temperature)
+
+Master pošlje NACK in STOP
 
 
 
+Kdaj pointer NI preset?
+
+Če si prej dostopal do drugega registra (npr. THIGH), potem:
+
+pointer kaže tja ❗
+če hočeš brati temperaturo, moraš narediti:
+START
+naslov + WRITE
+poslati 0x00 (TEMP register)
+REPEATED START
+naslov + READ
+branje 2 bajtov
+
+
+Ko master pošlje naslov naprave, pošlje skupaj 8 bitov:
+
+[ 7-bitni naslov ] + [ R/W bit ]
+R/W = 0 → WRITE
+R/W = 1 → READ
 
 
 
@@ -95,9 +139,7 @@ Povzetek :
 
 ## Software Requirements
 
-- ESP-IDF framework
-- LVGL graphics library
-- ESP-BSP (Board Support Package)
+ 
 
 ## Building and Flashing
 
