@@ -16,8 +16,7 @@
   ],
   "idf.flashType": "UART",
 
- 
-  "editor.tokenColorCustomizations": {
+"editor.tokenColorCustomizations": {
   "comments": "#6A9955AA",
   "textMateRules": [
     {
@@ -27,6 +26,11 @@
       }
     }
   ]
-}
+
+},
+
+
+"editor.semanticHighlighting.enabled": true,
+    "C_Cpp.enhancedColorization": "Enabled"    
 
 }

@@ -1,32 +1,11 @@
-# i2cbus 
-
-Je I2C komunikacijsko vodilo na ketero bomo priključili : 
-- Master esp32s3 in 
-- Slave i2c naprave kot so termometri, LCD displayi in drugo.
-
-Za vse naprave bomo pripravili knjižnico file.c in file.h:
-- za esp32s3  i2c_esp32_master.c in i2c_esp_32_master.h , kjer bomo konfigurirali i2c bus,
-
-za ostale npr. 
-- senzor AHT20 pa aht20.c in aht20.h fajle
-- uro DS3231.c in DS3231.h
-
-itd. 
+# aht20
 
 
-V main.c bodo vse naprave , aktivirane pa le tiste, ki jih bomo tudi fizično priklopili.
-
-
-
-Na I2C bus priključimo :
-- esp32s3
-- temperaturni senzor LM75(WCMCU-75)AHT30
-- monitor OLED Display Module SSD1306
-- uro DS3231 Clock Module  
+- temperaturni senzor 
 
 
 <div style="text-align: center;">
-  <img src="images/temp_senzor.png" width="100">
+  <img src="images/aht20.jpg" width="100">
   <img src="images/display_oled.png" width="100">
   <img src="images/ura.png" width="100">
 </div>

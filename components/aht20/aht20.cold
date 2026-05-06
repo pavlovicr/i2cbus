@@ -1,0 +1,62 @@
+
+
+
+/**
+ *\image html arlekino-joker.jpg "arlekino" height=100px   
+ * @file main.c
+ * @brief 
+ * \image 
+ *
+ * Ta modul omogoča:
+ * - inicializacijo I2C vodila
+ * - komunikacijo z LM75 senzorjem
+ * - branje temperature 
+ */
+
+
+/**/
+
+
+#include <stdio.h>
+/** @brief driver i2c_master.h */
+#include "driver/i2c_master.h"
+#include "esp_err.h"
+
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+
+
+
+
+i2c_device_config_t dev_cfg = {
+    .dev_addr_length = I2C_ADDR_BIT_LEN_7,
+    .device_address = 0x48,
+    .scl_speed_hz = 100000,
+};
+
+
+
+    
+
+   
+
+ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &dev_cfg, &dev_handle));
+
+
+/** @brief  */
+i2c_master_receive(dev_handle, read_buffer, sizeof(read_buffer), -1);
+
+
+
+printf("Temperature: %u\n", read_buffer[0]);
+
+
+// Temperature calculation
+int16_t temp_raw = (read_buffer[0] << 8) | read_buffer  [1];
+temp_raw >>= 5;  // LM75 uses 11-bit temp
+float temperature = temp_raw * 0.125;  // 0.125°C resolution
+
+printf("Temperature: %.2f°C\n", temperature);
+
