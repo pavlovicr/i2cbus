@@ -1,55 +1,35 @@
-# aht20+bmp280
+# BMP280
 
-- aht20 je i2c senzor za merjenje temperature in vlage 
-- bmp280 je i2c senzor za merjenje temperature in zračnega pritiska 
+bmp280 je i2c senzor za merjenje temperature in zračnega pritiska 
 
 <div style="text-align: center;">
-  <img src="images/aht20.jpg" width="100">
-  <img src="images/AHT20+BMP280.png" width="100">
+  <img src="images/bmp280.png" width="100">
+  <img src="images/aht20+bmt280.png" width="100">
 </div>
 
 https://github.com/peff74/ESP_AHT20_BMP280
+https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf
 
 
-## O I2C protokolu
-
-I2C (Inter-Integrated Circuit) je protokol, ki omogoča komunikacijo med napravami preko dveh žic: SDA (Serial Data Line) za prenos podatkov in SCL (Serial Clock Line) za časovno usklajevanje. Ta protokol vključuje tudi povezavo do mase in VCC za napajanje. Uporovniki, običajno med 2.2kΩ do 10kΩ, ohranjajo SDA in SCL v visokem stanju, ko so v mirovanju. Vsaka naprava v mreži potrebuje edinstven naslov, kar omogoča komunikacijo med več napravami z minimalno ožičenjem.
-
-Več na:
-- Joplin
-- https://www.3dsvet.eu/osnove-komunikacijskega-protokola-i2c/  
-- https://www.analog.com/en/resources/technical-articles/i2c-primer-what-is-i2c-part-1.html
 
 
-## Temperaturni AHT20 temperaturni senzor in senzor merjenja vlage + BMP280 za merjenje zračnega pritiska 
+## BMP280 za merjenje zračnega pritiska 
 
 Na PCB modulu sta nameščena dva senzorja AHT20 in BMP280  + 2 upora (472) 4.7kΩ za pullup SDA in SCL
-
-
+Manjši senzor je BMP280
 Značilnosti
- - Odčitava temperaturo in vlažnost iz AHT20
  - Odčitava temperaturo in tlak iz BMP280
  
-Naslovi I²C
- - AHT20	0x38
+Naslov I²C
  - BMP280	0x77
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-P
-
 ## Potek
+
+
+
+
+
 
 I2C timing diagram (Branje)
 Tipično 2 baytno branje z lokacije prednastavljenega pointerja,  kot so temperatura, temperatura visoka in temperatura nizka.  

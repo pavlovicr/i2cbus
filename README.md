@@ -1,6 +1,12 @@
 # i2cbus 
+<div style="text-align: center;">
+  <img src="images/i2c.png" width="100">
+</div>
 
-Je I2C komunikacijsko vodilo na ketero bomo priključili : 
+
+
+
+I2C serijsko komunikacijsko vodilo na ketero bomo priključili : 
 - Master esp32s3 in 
 - Slave i2c naprave kot so termometri, LCD displayi in drugo.
 
@@ -34,6 +40,12 @@ Na I2C bus priključimo :
 
 
 ## O I2C protokolu
+
+I2C je še vedno izjemno razširjen kljub temu , da je že od leta 1980 in je daleč od tega, da bi ga izrinili s trga.
+Ne samo da se uporablja, ampak njegova uporaba še vedno narašča. Leta 2024 je bil globalni trg I2C vodil ocenjen na 1,7 milijarde USD in naj bi do leta 2031 zrasel na 2,6 milijarde USD (z letno rastjo 8.10%) . To je preprost in zanesljiv način povezovanja, ki mu zaupa ves svet elektronike 
+
+Kdaj ga uporabiti ?
+Za 99% senzorjev (temperatura, vlaga, barometer, LCD displeji, RTC, IO expanderji) . Za "počasno" in zanesljivo komunikacijo.
 
 I2C (Inter-Integrated Circuit) je protokol, ki omogoča komunikacijo med napravami preko dveh žic: SDA (Serial Data Line) za prenos podatkov in SCL (Serial Clock Line) za časovno usklajevanje. Ta protokol vključuje tudi povezavo do mase in VCC za napajanje. Uporovniki, običajno med 2.2kΩ do 10kΩ, ohranjajo SDA in SCL v visokem stanju, ko so v mirovanju. Vsaka naprava v mreži potrebuje edinstven naslov, kar omogoča komunikacijo med več napravami z minimalno ožičenjem.
 
