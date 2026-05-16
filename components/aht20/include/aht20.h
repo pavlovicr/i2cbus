@@ -32,3 +32,13 @@ esp_err_t aht20_init(i2c_master_bus_handle_t bus,
 esp_err_t aht20_read(i2c_master_dev_handle_t dev,
                      float *temperature,
                      float *humidity);
+
+/**
+ * @brief Kalibracija senzorja, če je potrebno
+ */
+esp_err_t aht20_calibrate(i2c_master_dev_handle_t dev);             
+/**
+ * @brief Preveri, ali je senzor prisoten in deluje in ali je kalibriran. Če senzor ni kalibriran, ga kalibrira.
+ */
+esp_err_t aht20_check(i2c_master_dev_handle_t dev);
+

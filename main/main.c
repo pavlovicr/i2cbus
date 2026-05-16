@@ -19,11 +19,16 @@ void app_main(void)
     // 2. Dodaj senzor na bus
     aht20_init(bus, &aht);
 
+    aht20_check(aht);     // Preveri, ali je senzor kalibriran in prisoten
+
+    
+
     // 3. Periodično branje
     while (1) {
         aht20_read(aht, &t, &h);
 
-        ESP_LOGI(TAG, "T=%.2f°C H=%.2f%%", t, h);
+        ESP_LOGI(TAG, "AHT20 Temperatura = %.2f°C AHT20 Vlaga =%.2f%%", t, h);
+        
 
         vTaskDelay(pdMS_TO_TICKS(2000));
     }
